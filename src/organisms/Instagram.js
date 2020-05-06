@@ -16,12 +16,20 @@ const Wrapper = styled.div`
 
 export const InstagramPage = (props) => {
     const [data, setData] = useState(null)
-
+const isData = data && data.items !== undefined
     useEffect(() => {
-        fetch("https://www.instagram.com/goblue42agency/?__a=1")
-        //   .then(res => res.json())
-        .then(res => res.text())   
-        .then(text => console.log(text)) 
+        fetch("https://www.instagram.com/goblue42agency/?__a=1&callback=?",{
+            headers: {
+                'Content-Type': 'application/json',
+                'Access-Control-Allow-Origin': '*',
+            },
+            type: 'GET',
+            dataType: "jsonp"
+        })
+          .then(res => res.json())
+        //   .then(res => res.parseHTML())
+        // .then(res => res.text())   
+        // .then(text => console.log(text)) 
           .then(
             (result) => {
               setData({
@@ -43,8 +51,10 @@ export const InstagramPage = (props) => {
     return(
       <Wrapper >
         <Title>Instagram</Title>   
-        <Heading>API is returning HTML rather then a JSON object</Heading>  
+        <Heading>I'm getting a CORS error when using a content-type header</Heading>  
+        <Heading>Without header object the API is returning HTML rather then a JSON object</Heading>  
         <Paragraph>See console.log() in dev tools</Paragraph>
+        <Paragraph>{isData}</Paragraph>
      </Wrapper>
     )
 }

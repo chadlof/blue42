@@ -15,14 +15,14 @@ import fleetFarmLogo from './static/fleetFarmLogo.png'
 
 
 const AppWrapper = styled.div `
-      display:flex;
-      flex-flow:column;
-      justify-content: center;
-    align-items: center;
-    background: #EFF1E5;
-    color: #002F6C;
-    font-family: Montserrat;
-    text-rendering: optimizeLegibility;
+  display:flex;
+  flex-flow:column;
+  justify-content: center;
+  align-items: center;
+  background: #EFF1E5;
+  color: #002F6C;
+  font-family: Montserrat;
+  text-rendering: optimizeLegibility;
    
 `
 
@@ -49,7 +49,6 @@ const HeaderMenu = styled(Menu) `
   flex-grow:2;
   justify-content:end;
   
-  
   span {
     font-size: 1rem;
     padding: 0 2rem;
@@ -64,7 +63,6 @@ const StyledFooter = styled.footer `
   background:  #002f6c;
   color:#F0AD4E;
   width:100%;
-
   `
 
 const FooterMenu = styled(Menu) `
@@ -85,8 +83,9 @@ const PrevClientWrapper = styled.div `
   align-items:center;
   flex-flow:column;
 `
+
 const PrevClientText = styled.div `
-justify-content:center;
+  justify-content:center;
   margin:20px;
 `
 const PrevClientLogoWrapper = styled.div `
