@@ -9,7 +9,6 @@ import idsImg from '../static/idsImg.jpeg'
 const Wrapper = styled.div`
   display:flex;
   flex-flow:column;
-  margin: 2%;
 
   img {
       margin:30px 20px ;

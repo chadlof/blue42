@@ -8,14 +8,14 @@ const DrawerWrapper = styled.div`
   flex-flow:column;
   justify-content:center;
   height: 100%;
-  width:90%;
+  width:100%;
   position: absolute;
   top: 0;
   left: 0;
   background:  #002f6c;
   padding:8px;
   transition: transform 0.3s ease-in-out;
-  transform: ${props => props.openDrawer ? null :'translateX(-100%)'};
+  transform: ${props => props.openDrawer ? 'translateX(-100%)' : null};
 `
 
 

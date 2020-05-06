@@ -4,7 +4,7 @@ import styled from 'styled-components/macro';
 const StyledBurger = styled.button`
   position: absolute;
   top: 2%;
-  left: 18rem;
+  left: 20rem;
   display: flex;
   flex-direction: column;
   justify-content: space-around;

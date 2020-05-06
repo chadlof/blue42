@@ -7,6 +7,7 @@ import logo from './static/logo.svg';
 import { Menu } from './atoms/Menu'
 import { AboutPage } from './organisms/AboutPage'
 import { ContactPage } from './organisms/ContactPage'
+import { InstagramPage } from './organisms/Instagram'
 import { ServicesPage } from './organisms/Services'
 import bestBuyLogo from './static/bestBuyLogo.svg'
 import clamLogo from './static/clamLogo.png'
@@ -15,7 +16,15 @@ import fleetFarmLogo from './static/fleetFarmLogo.png'
 
 
 const AppWrapper = styled.div `
-
+      display:flex;
+      flex-flow:column;
+      justify-content: center;
+    align-items: center;
+    background: #EFF1E5;
+    color: #002F6C;
+    font-family: Montserrat;
+    text-rendering: optimizeLegibility;
+   
 `
 
 const LogoWrapper = styled.div`
@@ -29,6 +38,10 @@ const StyledHeader = styled.header `
   width: 100%;
   background:  #002f6c;
   color:#F0AD4E;
+
+  span {
+    text-align:center
+  }
   
 `
 
@@ -36,9 +49,10 @@ const HeaderMenu = styled(Menu) `
   flex-flow:row;
   flex-grow:2;
   justify-content:end;
-
-
+  
+  
   span {
+    font-size: 1rem;
     padding: 0 2rem;
 
   }
@@ -50,15 +64,17 @@ const StyledFooter = styled.footer `
   justify-content:center;
   background:  #002f6c;
   color:#F0AD4E;
+  width:100%;
 
   `
 
 const FooterMenu = styled(Menu) `
   flex-flow:row;
-  font-size:.5em;
+  font-size:.2rem;
+  flex-wrap: wrap;
 
   span {
-    padding: 0 1rem;
+    padding: .5rem;
 
   }
 
@@ -77,7 +93,6 @@ justify-content:center;
 const PrevClientLogoWrapper = styled.div `
   display:flex;
   justify-content:space-between;
-  max-width: 50%;
 
   img {
     padding: 0 6px;
@@ -87,7 +102,10 @@ const PrevClientLogoWrapper = styled.div `
 function App() {
   const [openDrawer, setOpenDrawer] = useState(false)
   const [pageState, setPageState] = useState('about')
-  const isMobile = window.innerWidth < 480;
+  const isMobile = window.innerWidth < 600;
+  console.log(window.innerWidth)
+  console.log({isMobile})
+  console.log({openDrawer})
  
   return (
    <AppWrapper>
@@ -96,7 +114,7 @@ function App() {
        isMobile &&
        <span>
          <Burger openDrawer={openDrawer} setOpenDrawer={setOpenDrawer}/>
-         <Drawer openDrawer={openDrawer} setOpenDrawer={setOpenDrawer} setPageState={setPageState }/>
+         <Drawer openDrawer={!openDrawer} setOpenDrawer={setOpenDrawer} setPageState={setPageState }/>
        </span>
      }
      {
@@ -110,10 +128,11 @@ function App() {
          </StyledHeader>
        </span>
      }
-     <body>
+     <div>
        {
          pageState === 'about' &&
         <AboutPage/>
+
        }
       {
         pageState === 'contact' &&
@@ -123,8 +142,11 @@ function App() {
          pageState === 'services' &&
          <ServicesPage/>
        }
-       {/* <Pages pageState={pageState}/> */}
-     </body>
+        {
+         pageState === 'instagram' &&
+         <InstagramPage/>
+       }
+     </div>
       <StyledFooter>
         <PrevClientWrapper>
         <PrevClientText>Previous clients that EMD has worked with</PrevClientText>

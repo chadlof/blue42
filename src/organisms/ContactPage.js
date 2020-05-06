@@ -1,8 +1,32 @@
-import React from 'react';
+import React , { useState }from 'react';
 import styled from 'styled-components/macro';
+import { Title } from '../atoms/Title'
+
 
 const Wrapper = styled.div`
   display:flex;
+  flex-flow:column;
+`
+
+const StyledForm = styled.form `
+  display:flex;
+  flex-flow:column;
+`
+const StyledLabel = styled.label `
+  margin:2px;
+`
+
+const StyledInput = styled.input `
+    border-radius:6px;`
+
+const StyledTextArea = styled.textarea `
+    border-radius:6px;
+`
+
+const StyledSubmit = styled.input `
+    border-radius:6px;
+    width: 60%;
+    margin: 12px auto;
 `
 
 
@@ -10,10 +34,45 @@ const Wrapper = styled.div`
 
 
 export const ContactPage = (props) => {
+    const [name, setName] = useState(' ')
+    const [email, setEmail] = useState(' ')
+    const [message, setMessage] = useState(' ')
+
+console.log({name, email,message})
+    const _onNameChange = (event) => {
+        setName(event.target.value)
+    }
+
+    const _onEmailChange = (event) => {
+        setEmail(event.target.value)
+    }
+
+    const _onMessageChange = (event) => {
+        setMessage(event.target.value)
+    }
+
+    const _onSubmit = () => {
+        console.log('Save form data: ', name, email,message)
+    }
 
     return(
       <Wrapper >
-          <h1>Contact us</h1>
+          <Title>Contact us</Title>
+      <StyledForm onSubmit={_onSubmit}>
+        <StyledLabel>
+          Name:
+        </StyledLabel>
+          <StyledInput type="text" value={name} onChange={_onNameChange} />
+        <StyledLabel>
+          Email:
+        </StyledLabel>
+          <StyledInput type="text" value={email} onChange={_onEmailChange} />
+        <StyledLabel>
+          Message:
+        </StyledLabel>
+          <StyledTextArea type="text" rows="4" value={message} onChange={_onMessageChange} />
+        <StyledSubmit type="submit" value="Submit" />
+      </StyledForm> 
       </Wrapper>
     )
 }

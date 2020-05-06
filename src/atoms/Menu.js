@@ -11,7 +11,7 @@ const StyledMenu = styled.div`
   padding: 2rem;
 
 
-  a {
+  span {
     font-size: 2rem;
     text-transform: uppercase;
     padding: 1rem 0;
@@ -20,6 +20,7 @@ const StyledMenu = styled.div`
     letter-spacing: 0.5rem;
     text-decoration: none;
     transition: color 0.3s linear;
+    color: #F0AD4E;
   }
 `;
 
@@ -28,7 +29,6 @@ const StyledMenu = styled.div`
 
 export const Menu = (props) => {
   const {  setOpenDrawer, className, setPageState }= props
-  console.log({setOpenDrawer})
 
     const toggleAboutPage = () => {
       setOpenDrawer(false)
@@ -39,9 +39,15 @@ export const Menu = (props) => {
       setOpenDrawer(false)
       setPageState('contact')
     }
+
     const toggleServicesPage = () => {    
       setOpenDrawer(false)
       setPageState('services')
+    }
+
+    const toggleInstagramPage = () => {    
+      setOpenDrawer(false)
+      setPageState('instagram')
     }
 
     return(
@@ -52,6 +58,8 @@ export const Menu = (props) => {
           
           <span  aria-label="services" onClick={() => toggleServicesPage()}>Services</span>
           
+          <span  aria-label="instagram" onClick={() => toggleInstagramPage()}>Instagram</span>
+
       </StyledMenu>
     )
 }
