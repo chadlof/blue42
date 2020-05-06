@@ -100,6 +100,7 @@ const PrevClientLogoWrapper = styled.div `
 function App() {
   const [openDrawer, setOpenDrawer] = useState(false)
   const [pageState, setPageState] = useState('about')
+  window.onresize = function(){ window.location.reload(); }
   const isMobile = window.innerWidth < 600;
 
  
