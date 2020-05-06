@@ -1,6 +1,8 @@
 import React , { useState }from 'react';
 import styled from 'styled-components/macro';
 import { Title } from '../atoms/Title'
+import { Heading } from '../atoms/Heading'
+import { Paragraph } from '../atoms/Paragraph'
 
 
 const Wrapper = styled.div`
@@ -73,6 +75,10 @@ console.log({name, email,message})
           <StyledTextArea type="text" rows="4" value={message} onChange={_onMessageChange} />
         <StyledSubmit type="submit" value="Submit" />
       </StyledForm> 
+        <Heading>EMD’s general information:</Heading>
+        <Paragraph>Phone: 763-123-1234</Paragraph>
+        <Paragraph>Email: info@elitemediadesign.com</Paragraph>
+        <Paragraph>Address: 80 S 8th St, Suite #005 Minneapolis, MN 55402</Paragraph>
       </Wrapper>
     )
 }

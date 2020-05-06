@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import styled from 'styled-components/macro';
-import { GlobalStyles } from './global';
 import { Burger } from './atoms/Burger'
 import { Drawer } from './molecules/Drawer'
 import logo from './static/logo.svg';
@@ -103,13 +102,10 @@ function App() {
   const [openDrawer, setOpenDrawer] = useState(false)
   const [pageState, setPageState] = useState('about')
   const isMobile = window.innerWidth < 600;
-  console.log(window.innerWidth)
-  console.log({isMobile})
-  console.log({openDrawer})
+
  
   return (
-   <AppWrapper>
-     <GlobalStyles/>
+    <AppWrapper>
      {
        isMobile &&
        <span>
