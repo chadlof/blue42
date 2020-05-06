@@ -12,7 +12,7 @@ const DrawerWrapper = styled.div`
   position: absolute;
   top: 0;
   left: 0;
-  background: #F0AD4E;
+  background:  #002f6c;
   padding:8px;
   transition: transform 0.3s ease-in-out;
   transform: ${props => props.openDrawer ? null :'translateX(-100%)'};
@@ -21,13 +21,11 @@ const DrawerWrapper = styled.div`
 
 
 const LogoWrapper = styled.div`
-  float: right;
   margin: 20px;
 `
 
 export const Drawer = (props) => {
     const { openDrawer, setPageState, setOpenDrawer }= props
-console.log({setOpenDrawer})
     return(
       <DrawerWrapper openDrawer={openDrawer}>
           <LogoWrapper>
