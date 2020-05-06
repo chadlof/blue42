@@ -1,6 +1,5 @@
 import React from 'react';
 import styled from 'styled-components/macro';
-import logo from '../static/logo.svg';
 
 
 const StyledMenu = styled.div`
@@ -26,23 +25,33 @@ const StyledMenu = styled.div`
 
 
 
+
 export const Menu = (props) => {
-    const {  setOpenDrawer, className }= props
+  const {  setOpenDrawer, className, setPageState }= props
+  console.log({setOpenDrawer})
+
+    const toggleAboutPage = () => {
+      setOpenDrawer(false)
+      setPageState('about')
+    }
+    
+    const toggleContactPage = () => {
+      setOpenDrawer(false)
+      setPageState('contact')
+    }
+    const toggleServicesPage = () => {    
+      setOpenDrawer(false)
+      setPageState('services')
+    }
 
     return(
         <StyledMenu className={className}>
-        <a href="/">
-          <span aria-label="about us" onClick={() => setOpenDrawer(false)}>About us</span>
+          <span aria-label="about us" onClick={() => toggleAboutPage()}>About us</span>
         
-        </a>
-        <a href="/">
-          <span aria-label="contact us"  onClick={() => setOpenDrawer(false)}>Contact Us</span>
+          <span aria-label="contact us"  onClick={() => toggleContactPage()}>Contact Us</span>
           
-          </a>
-        <a href="/">
-          <span  aria-label="services" onClick={() => setOpenDrawer(false)}>Services</span>
+          <span  aria-label="services" onClick={() => toggleServicesPage()}>Services</span>
           
-          </a>
       </StyledMenu>
     )
 }

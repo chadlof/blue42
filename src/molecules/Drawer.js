@@ -26,14 +26,14 @@ const LogoWrapper = styled.div`
 `
 
 export const Drawer = (props) => {
-    const { openDrawer }= props
-
+    const { openDrawer, setPageState, setOpenDrawer }= props
+console.log({setOpenDrawer})
     return(
       <DrawerWrapper openDrawer={openDrawer}>
           <LogoWrapper>
             <img src={logo} height='80' alt='logo'/>
           </LogoWrapper>
-          <Menu/>
+          <Menu setPageState={setPageState} setOpenDrawer={setOpenDrawer}/>
       </DrawerWrapper>
     )
 }
